@@ -1,1 +1,1 @@
-# eastedu-vue-template
+# eastedu-cli
