@@ -1,7 +1,7 @@
 {
   "name": "eastedu-cli",
   "version": "1.1.0",
-  "description": "",
+  "description": "web工程通用脚手架工具",
   "bin": {
     "eastedu": "bin/eastedu"
   },
