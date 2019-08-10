@@ -1,0 +1,28 @@
+{
+  "name": "eastedu-cli",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "eastedu": "bin/eastedu"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/942368681/eastedu-cli.git"
+  },
+  "keywords": [],
+  "author": "sunfl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/942368681/eastedu-cli/issues"
+  },
+  "homepage": "https://github.com/942368681/eastedu-cli#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^3.0.0"
+  }
+}
