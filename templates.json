@@ -1,1 +1,12 @@
-{"tpl":{"eastedu-vue-template":{"url":"https://github.com/942368681/eastedu-vue-template.git","branch":"master"},"eastedu-react-template":{"url":"https://github.com/942368681/eastedu-react-template.git","branch":"master"}}}
+{
+    "tpl": {
+        "eastedu-vue-template": {
+            "url": "https://github.com/942368681/eastedu-vue-template.git",
+            "branch": "master"
+        },
+        "eastedu-react-template": {
+            "url": "https://github.com/942368681/eastedu-react-template.git",
+            "branch": "master"
+        }
+    }
+}
