@@ -32,3 +32,4 @@ Project name: react-test-project
 #### 支持的模板类型
 - eastedu-react-template
 - eastedu-vue-template
+- react-component-npm-cli

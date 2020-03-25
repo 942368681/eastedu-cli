@@ -7,6 +7,10 @@
         "eastedu-react-template": {
             "url": "https://github.com/942368681/eastedu-react-template.git",
             "branch": "master"
+        },
+        "react-component-npm-cli": {
+            "url": "https://github.com/942368681/react-component-npm-cli.git",
+            "branch": "master"
         }
     }
 }
