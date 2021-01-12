@@ -1,5 +1,6 @@
 'use strict'
-const config = require('../templates')
+const config = require('../templates');
+const chalk = require('chalk');
 
 module.exports = () => {
     let str = '';
