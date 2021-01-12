@@ -66,7 +66,3 @@ module.exports = () => {
         process.exit();
     });
 }
-
-(function () {
-    
-})()
