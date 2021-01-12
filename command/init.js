@@ -50,7 +50,7 @@ module.exports = () => {
                 process.exit();
             }
             const meta = {
-                name: 'aaaa'
+                name: answers.projectName
             };
             const content = fs.readFileSync(`${answers.projectName}/package.json`).toString();
             const result = handlebars.compile(content)(meta);
