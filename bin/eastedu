@@ -1,53 +1,62 @@
 #!/usr/bin/env node --harmony
 
-'use strict'
+'use strict';
 // 定义脚手架的文件路径
-process.env.NODE_PATH = __dirname + '/../node_modules/'
+process.env.NODE_PATH = __dirname + '/../node_modules/';
 
-const program = require('commander')
+const program = require('commander');
+const updateChk = require('../lib/update');
 
 // 定义当前版本
 program
-  .version(require('../package').version)
+	.version(require('../package').version);
 
 // 定义使用方法
 program
-  .usage('<command>')
+	.usage('<command>');
 
 program
-  .command('add')
-  .description('Add a new template')
-  .alias('a')
-  .action(() => {
-    require('../command/add')()
-  })
+	.command('upgrade')
+	.description("Check the js-plugin-cli version.")
+	.alias('u')
+	.action(() => {
+		updateChk();
+	});
 
 program
-  .command('list')
-  .description('List all the templates')
-  .alias('l')
-  .action(() => {
-    require('../command/list')()
-  })
+	.command('add')
+	.description('Add a new template')
+	.alias('a')
+	.action(() => {
+		require('../command/add')()
+	});
 
 program
-  .command('init')
-  .description('Generate a new project')
-  .alias('i')
-  .action(() => {
-    require('../command/init')()
-  })
+	.command('list')
+	.description('List all the templates')
+	.alias('l')
+	.action(() => {
+		require('../command/list')()
+	});
 
 program
-  .command('delete')
-  .description('Delete a template')
-  .alias('d')
-  .action(() => {
-    require('../command/delete')()
-  })
+	.command('init')
+	.description('Generate a new project')
+	.alias('i')
+	.action(() => {
+		require('../command/init')()
+	});
 
-program.parse(process.argv)
+program
+	.command('delete')
+	.description('Delete a template')
+	.alias('d')
+	.action(() => {
+		require('../command/delete')()
+	});
+
+program.parse(process.argv);
 
 if (!program.args.length) {
-  program.help()
+	program.help();
 }

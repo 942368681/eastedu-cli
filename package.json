@@ -1,6 +1,6 @@
 {
   "name": "eastedu-cli",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "web工程通用脚手架工具",
   "bin": {
     "eastedu": "bin/eastedu"
@@ -12,7 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/942368681/eastedu-cli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Git",
+    "CLI"
+  ],
   "author": "sunfl",
   "license": "ISC",
   "bugs": {
@@ -21,8 +24,12 @@
   "homepage": "https://github.com/942368681/eastedu-cli#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "co": "^4.6.0",
-    "co-prompt": "^1.0.0",
-    "commander": "^3.0.0"
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "commander": "^3.0.0",
+    "figlet": "^1.5.0",
+    "handlebars": "^4.7.6",
+    "inquirer": "^7.3.3",
+    "update-notifier": "^5.0.1"
   }
 }

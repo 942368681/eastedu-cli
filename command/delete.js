@@ -1,31 +1,44 @@
-'use strict'
-const co = require('co')
-const prompt = require('co-prompt')
-const config = require('../templates')
-const chalk = require('chalk')
-const fs = require('fs')
+'use strict';
+const config = require('../templates');
+const chalk = require('chalk');
+const fs = require('fs');
+const inquirer = require('inquirer');
+const clear = require('clear');
 
 module.exports = () => {
-    co(function* () {
-        // 接收用户输入的参数
-        let tplName = yield prompt('Template name: ')
-
-        // 删除对应的模板
-        if (config.tpl[tplName]) {
-            config.tpl[tplName] = undefined
-        } else {
-            console.log(chalk.red('Template does not exist!'))
-            process.exit()
+    clear();
+    inquirer.prompt([
+        {
+            name: 'templateName',
+            type: 'input',
+            message: '请输入要删除的模板名称：',
+            validate: function (value) {
+                if (value.length) {
+                    if (!config.tpl[value]) {
+                        return '模板不存在，请重新输入';
+                    } else {
+                        return true;
+                    }
+                } else {
+                    return '请输入要删除的模板名称';
+                }
+            },
         }
-
-        // 写入template.json
+    ])
+    .then(res => {
+        config.tpl[res.templateName] = undefined;
         fs.writeFile(__dirname + '/../templates.json', JSON.stringify(config), 'utf-8', (err) => {
-            if (err) console.log(err)
-            console.log(chalk.green('Template deleted!'))
-            console.log(chalk.grey('The last template list is: \n'))
-            console.log(config)
-            console.log('\n')
-            process.exit()
-        })
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(chalk.green('模板已删除！'));
+            }
+            process.exit();
+        });
     })
+    .catch(error => {
+        console.log(error);
+        console.log('发生了一个错误：', chalk.red(JSON.stringify(error)));
+        process.exit();
+    });
 }

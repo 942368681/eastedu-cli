@@ -1,5 +1,9 @@
 {
     "tpl": {
+        "subapp-template": {
+            "url": "https://github.com/942368681/umi-qiankun-subapp.git",
+            "branch": "master"
+        },
         "eastedu-vue-template": {
             "url": "https://github.com/942368681/eastedu-vue-template.git",
             "branch": "master"

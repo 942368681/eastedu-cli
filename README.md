@@ -20,9 +20,10 @@ eastedu init
 
 #### 选择模板类型
 > 支持的模板类型可输入 eastedu list查看
-```
-Template name: eastedu-react-template
-```
+- eastedu-react-template
+- eastedu-vue-template
+- subapp-template
+- react-component-npm-cli
 
 #### 输入项目名称
 ```
@@ -32,4 +33,5 @@ Project name: react-test-project
 #### 支持的模板类型
 - eastedu-react-template
 - eastedu-vue-template
+- subapp-template
 - react-component-npm-cli

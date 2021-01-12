@@ -1,36 +1,70 @@
-'use strict'
-const co = require('co')
-const prompt = require('co-prompt')
-const config = require('../templates')
-const chalk = require('chalk')
-const fs = require('fs')
+'use strict';
+const config = require('../templates');
+const chalk = require('chalk');
+const fs = require('fs');
+const inquirer = require('inquirer');
+const clear = require('clear');
 
 module.exports = () => {
-    co(function* () {
-
-        // 分步接收用户输入的参数
-        let tplName = yield prompt('Template name: ')
-        let gitUrl = yield prompt('Git https link: ')
-        let branch = yield prompt('Branch: ')
-
-        // 避免重复添加
-        if (!config.tpl[tplName]) {
-            config.tpl[tplName] = {}
-            config.tpl[tplName]['url'] = gitUrl.replace(/[\u0000-\u0019]/g, '') // 过滤unicode字符
-            config.tpl[tplName]['branch'] = branch
-        } else {
-            console.log(chalk.red('Template has already existed!'))
-            process.exit()
+    clear();
+    inquirer.prompt([
+        {
+            name: 'templateName',
+            type: 'input',
+            message: '请输入模板名称：',
+            validate: function (value) {
+                if (value.length) {
+                    if (config.tpl[value]) {
+                        return '模板已存在，请重新输入';
+                    } else {
+                        return true;
+                    }
+                } else {
+                    return '请输入模板名称';
+                }
+            },
+        },
+        {
+            name: 'gitLink',
+            type: 'input',
+            message: '请输入 Git https link：',
+            validate: function (value) {
+                if (value.length) {
+                    return true;
+                } else {
+                    return '请输入 Git https link';
+                }
+            },
+        },
+        {
+            name: 'branch',
+            type: 'input',
+            message: '请输入分支名称：',
+            validate: function (value) {
+                if (value.length) {
+                    return true;
+                } else {
+                    return '请输入分支名称';
+                }
+            },
         }
-
-        // 把模板信息写入templates.json
+    ])
+    .then(res => {
+        config.tpl[res.templateName] = {};
+        config.tpl[res.templateName]['url'] = res.gitLink.replace(/[\u0000-\u0019]/g, ''); // 过滤unicode字符
+        config.tpl[res.templateName]['branch'] = res.branch;
         fs.writeFile(__dirname + '/../templates.json', JSON.stringify(config), 'utf-8', (err) => {
-            if (err) console.log(err)
-            console.log(chalk.green('New template added!\n'))
-            console.log(chalk.grey('The last template list is: \n'))
-            console.log(config)
-            console.log('\n')
-            process.exit()
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(chalk.green('新模板已添加！\n'));
+            }
+            process.exit();
         })
     })
+    .catch(error => {
+        console.log(error);
+        console.log('发生了一个错误：', chalk.red(JSON.stringify(error)));
+        process.exit();
+    });
 }
