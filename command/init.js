@@ -9,7 +9,7 @@ const inquirer = require('inquirer');
 const handlebars = require('handlebars');
 const clui = require('clui');
 const Spinner = clui.Spinner;
-const status = new Spinner('正在生成...');
+const status = new Spinner('正在下载...');
 
 module.exports = () => {
     let gitUrl;
@@ -55,8 +55,8 @@ module.exports = () => {
             const content = fs.readFileSync(`${answers.projectName}/package.json`).toString();
             const result = handlebars.compile(content)(meta);
             fs.writeFileSync(`${answers.projectName}/package.json`, result);
-            console.log(chalk.green('\n √ 生成完成!'));
-            console.log(chalk.cyan(`\n cd ${answers.projectName} && npm install \n`));
+            console.log(chalk.green('\n √ 下载完成!'));
+            console.log(chalk.cyan(`\n cd ${answers.projectName} && yarn \n`));
             process.exit();
         })
     })
