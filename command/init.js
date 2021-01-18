@@ -7,6 +7,7 @@ const clear = require('clear');
 const figlet = require('figlet');
 const inquirer = require('inquirer');
 const handlebars = require('handlebars');
+const removeDir = require('../lib/remove');
 const clui = require('clui');
 const Spinner = clui.Spinner;
 const status = new Spinner('正在下载...');
@@ -55,6 +56,7 @@ module.exports = () => {
             const content = fs.readFileSync(`${answers.projectName}/package.json`).toString();
             const result = handlebars.compile(content)(meta);
             fs.writeFileSync(`${answers.projectName}/package.json`, result);
+            removeDir(`${answers.projectName}/.git`);
             console.log(chalk.green('\n √ 下载完成!'));
             console.log(chalk.cyan(`\n cd ${answers.projectName} && yarn \n`));
             process.exit();
