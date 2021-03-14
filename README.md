@@ -20,10 +20,6 @@ eastedu init
 
 #### 选择模板类型
 > 支持的模板类型可输入 eastedu list查看
-- eastedu-react-template
-- eastedu-vue-template
-- subapp-template
-- react-component-npm-cli
 
 ![img](https://github.com/942368681/eastedu-cli/blob/master/assets/init.png)
 
