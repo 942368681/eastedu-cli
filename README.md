@@ -24,13 +24,13 @@ eastedu init
 - eastedu-vue-template
 - subapp-template
 - react-component-npm-cli
-![img](https://github.com/942368681/white-board-mini/blob/master/assets/init.png)
+![img](https://github.com/942368681/eastedu-cli/blob/master/assets/init.png)
 
 #### 输入项目名称
 ```
 Project name: react-test-project
 ```
-![img](https://github.com/942368681/white-board-mini/blob/master/assets/name.png)
+![img](https://github.com/942368681/eastedu-cli/blob/master/assets/name.png)
 
 
 #### 支持的模板类型
