@@ -24,6 +24,7 @@ eastedu init
 - eastedu-vue-template
 - subapp-template
 - react-component-npm-cli
+
 ![img](https://github.com/942368681/eastedu-cli/blob/master/assets/init.png)
 
 #### 输入项目名称
